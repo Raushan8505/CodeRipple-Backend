@@ -61,9 +61,11 @@ userRouter.post("/login", async (req, res) => {
                 } else {
                     res
                         .status(400)
-                        .send({ msg: "Please register first, wrong Credential" });
+                        .send({ msg: "Wrong Password" });
                 }
             });
+        }else{
+            res.status(200).send({msg:"User not Found"});
         }
     } catch (err) {
         res.status(400).send({ error: "err" });
